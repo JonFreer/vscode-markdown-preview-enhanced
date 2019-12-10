@@ -504,6 +504,10 @@ export class MarkdownPreviewEnhancedView {
       return this.refreshPreview(sourceUri);
     }
 
+    if (triggeredBySave) {
+      this.htmlExport(sourceUri, false);
+    }
+
     // not presentation mode
     vscode.workspace.openTextDocument(sourceUri).then((document) => {
       const text = document.getText();
